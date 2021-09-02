@@ -1,4 +1,6 @@
 ﻿#include <iostream>
+#include <stdio.h>
+#include <conio.h>
 #include <stdlib.h>
 #include <windows.h>
 #include "Board.h"
@@ -43,8 +45,8 @@ int main()
 			std::cout << std::endl;
 		}
 
-		LCK = getchar(); 
-		if (LCK == 119) //upKey
+		LCK = _getch(); 
+		if (LCK == 'w'//upKey
 		{
 			possibleMove[actuall - 3] = 89;
 		}
