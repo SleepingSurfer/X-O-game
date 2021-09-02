@@ -1,0 +1,4 @@
+﻿  X-O Game Project.cpp
+C:\Users\andrz\OneDrive\Pulpit\X-O Game Project\X-O Game Project\X-O Game Project.cpp(20,6): warning C4101: "playerOnePoints": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\andrz\OneDrive\Pulpit\X-O Game Project\X-O Game Project\X-O Game Project.cpp(21,6): warning C4101: "playerTwoPoints": lokalna zmienna, do której nie istnieje odwołanie
+  X-O Game Project.vcxproj -> C:\Users\andrz\OneDrive\Pulpit\X-O Game Project\Debug\X-O Game Project.exe
