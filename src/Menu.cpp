@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-void buttomClicked()
+void buttom_clicked()
 {
 	LCK = _getch();
 	if (LCK == 'w'

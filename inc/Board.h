@@ -1,10 +1,16 @@
 #pragma once
 #include <iostream>
-int boardSize = 3;
-char possibleMove[9] = { 90,90,90,90,90,90,90,90,90 };
-int boardStatusSaved[9] = { 1,2,3,4,5,6,7,8,9 };
-int playerOnePoints;
-int playerTwoPoints;
-void screenRefresh();
-void boardVisuals();
-void Board(int boardSize)
+class Board
+{
+	int boardSize = 3;
+	int player_one_points;
+	int player_two_points;
+	char possibleMove[9] = { 90,90,90,90,90,90,90,90,90 };
+	int playerOnePoints;
+	int playerTwoPoints;
+	void screen_refresh();
+	void board_visuals();
+	void board(int boardSize);
+	void reset();
+};
+

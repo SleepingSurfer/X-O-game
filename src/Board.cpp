@@ -1,18 +1,19 @@
 #include "Board.h"
+#include "X-O Game Project.cpp"
 
-void screenRefresh()
+void screen_refresh()
 {
 	Sleep(1000);
 	system("CLS");
 
 }
 
-void boardVisuals()
+void board_visuals()
 {
 
 }
 
-void Board(int BoardSize)
+void board(int BoardSize)
 {
 	int actuall = 4;
 	int k = 0;
@@ -31,4 +32,10 @@ void Board(int BoardSize)
 		}
 		std::cout << std::endl;
 	}
+}
+
+void reset()
+{
+	possibleMove[9] = { 90,90,90,90,90,90,90,90,90 };
+	player_two_points = 0;
 }
