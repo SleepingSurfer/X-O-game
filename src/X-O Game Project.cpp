@@ -3,10 +3,8 @@
 #include <conio.h>
 #include <stdlib.h>
 #include <windows.h>
-#include "Board.h"
-#include "Menu.h"
-#include "Board.cpp"
-#include "Menu.cpp"
+#include "../inc/Board.h"
+#include "../inc/Menu.h"
 int main()
 {
 

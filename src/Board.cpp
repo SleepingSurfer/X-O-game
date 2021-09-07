@@ -1,6 +1,7 @@
-#include "Board.h"
-#include "X-O Game Project.cpp"
-
+#include "../inc/Board.h"
+#include <iostream>
+#include <stdio.h>
+#include <windows.h>
 void screen_refresh()
 {
 	Sleep(1000);
@@ -17,17 +18,17 @@ void board(int BoardSize)
 {
 	int actuall = 4;
 	int k = 0;
-	for (int i = boardSize; i > 0; i--)
+	for (int i = Board::boardSize; i > 0; i--)
 	{
-		for (int y = boardSize; y > 0; y--)
+		for (int y = Board::boardSize; y > 0; y--)
 		{
 			std::cout << "===";
 		}
 		std::cout << std::endl;
-		for (int s = boardSize; s > 0; s--)
+		for (int s = Board::boardSize; s > 0; s--)
 		{
 
-			std::cout << "|" << possibleMove[k];
+			std::cout << "|" << Board::possibleMove[k];
 			k++;
 		}
 		std::cout << std::endl;
@@ -36,6 +37,6 @@ void board(int BoardSize)
 
 void reset()
 {
-	possibleMove[9] = { 90,90,90,90,90,90,90,90,90 };
-	player_two_points = 0;
+	Board::possibleMove[9] = { 90,90,90,90,90,90,90,90,90 };
+	Board::player_two_points = 0;
 }
