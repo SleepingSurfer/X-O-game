@@ -1,20 +1,21 @@
 #include <stdlib.h>
 #include <conio.h>
 #include "../inc/Menu.h"
+
 void buttom_clicked()
 {
-	menu_element::LCK = _getch();
-	if (menu_element::LCK == 'w')
+	menu::LCK = _getch();
+	if (menu::LCK == 'w')//w zmienia aktualnie wybran¹ opcjê na t¹ powy¿ej
 	{
-		if (menu_element::current_option > 1)
-			menu_element::curent_option++;
+		if (menu::current_option > 1)
+			menu::curent_option++;
 	}
-	else if (menu_element::LCK == 's')
+	else if (menu::LCK == 's')//s zmienia aktualnie wybran¹ opcjê na t¹ poni¿ej
 	{
-		if (menu_element::current_option < 4)
-			menu_element::curent_option--;
+		if (menu::current_option < 4)
+			menu::curent_option--;
 	}
-	else if (menu_element::LCK == '\n')
+	else if (menu::LCK == '\n') //Enter zatwierdza wybór opcji
 	{
 
 	}
@@ -22,28 +23,20 @@ void buttom_clicked()
 }
 void display_menu()
 {
-	switch (menu_element::current_option)
+	switch (menu::current_option)
 	{
-	case 1:
-		std::cout << "|||" << menu_element::option_one << std::endl;
-		std::cout << menu_element::option_two << std::endl;
-		std::cout << menu_element::option_three << std::endl;
-		std::cout << menu_element::option_four << std::endl;
-	case 2:
-		std::cout << menu_element::option_one << std::endl;
-		std::cout << "|||" << menu_element::option_two << std::endl;
-		std::cout << menu_element::option_three << std::endl;
-		std::cout << menu_element::option_four << std::endl;
-	case 3:
-		std::cout << menu_element::option_one << std::endl;
-		std::cout << menu_element::option_two << std::endl;
-		std::cout << "|||" << menu_element::option_three << std::endl;
-		std::cout << menu_element::option_four << std::endl;
-	case 4:
-		std::cout << menu_element::option_one << std::endl;
-		std::cout << menu_element::option_two << std::endl;
-		std::cout << menu_element::option_three << std::endl;
-		std::cout << "|||" << menu_element::option_four << std::endl;
-	}
+	case menu::menu_option::nowa_gra:
+		std::cout << menu::option[menu::menu_option::nowa_gra];
+			break;
+	case menu::menu_option::wczytaj_zapis:
+		std::cout << menu::option[menu::menu_option::wczytaj_zapis];
+		break;
+	case menu::menu_option::sterowanie:
+		std::cout << menu::option[menu::menu_option::sterowanie];
+		break;
+
+	case menu::menu_option::twórcy:
+		std::cout << menu::option[menu::menu_option::twórcy];
+		break;
 
 }

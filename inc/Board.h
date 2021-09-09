@@ -3,7 +3,7 @@
 class Board
 {
 private:
-	int boardSize = 3;
+	int boardSize = 3; // nie wiem dlaczego ale funkcja nie widzi go z prywatnych do poprawy
 	int player_one_points;
 	int player_two_points;
 	char possibleMove[9] = { 90,90,90,90,90,90,90,90,90 };

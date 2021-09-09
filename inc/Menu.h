@@ -4,17 +4,22 @@
 #include <stdlib.h>
 
 
-class menu_element
+class menu
 {
 private:
+    enum menu_option
+    {
+        nowa_gra = 0,
+        wczytaj_zapis = 1,
+        sterowanie = 2,
+        twórcy = 3
+
+    };
     char LCK;
     int current_option = 1;
-    std::string option_one;
-    std::string option_two;
-    std::string option_three;
-    std::string option_four;
+    std::string option[4] = {"nowa gra","wczytaj zapis","sterowanie","twórcy"};
 public:
-    menu_element();
+    menu();
     void button_clicked();
     void display_menu();
 }
