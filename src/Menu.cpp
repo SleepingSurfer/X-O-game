@@ -2,41 +2,59 @@
 #include <conio.h>
 #include "../inc/Menu.h"
 
-void buttom_clicked()
+
+void Menu::button_clicked()
 {
-	menu::LCK = _getch();
-	if (menu::LCK == 'w')//w zmienia aktualnie wybran¹ opcjê na t¹ powy¿ej
+	LCK = _getch();
+	if (LCK == 'w')//w zmienia aktualnie wybran¹ opcjê na t¹ powy¿ej
 	{
-		if (menu::current_option > 1)
-			menu::curent_option++;
+		if (current_option > 1)
+		{
+			current_option++;
+			display_menu();
+		}
 	}
-	else if (menu::LCK == 's')//s zmienia aktualnie wybran¹ opcjê na t¹ poni¿ej
+	else if (LCK == 's')//s zmienia aktualnie wybran¹ opcjê na t¹ poni¿ej
 	{
-		if (menu::current_option < 4)
-			menu::curent_option--;
+		if (current_option < 4)
+		{
+			current_option--;
+			display_menu();
+		}
 	}
-	else if (menu::LCK == '\n') //Enter zatwierdza wybór opcji
+	else if (LCK == '\n') //Enter zatwierdza wybór opcji
 	{
 
 	}
-	else;
+	else
+	{
+
+	}
 }
-void display_menu()
+void Menu::display_menu()
 {
-	switch (menu::current_option)
+	switch (current_option)
 	{
-	case menu::menu_option::nowa_gra:
-		std::cout << menu::option[menu::menu_option::nowa_gra];
-			break;
-	case menu::menu_option::wczytaj_zapis:
-		std::cout << menu::option[menu::menu_option::wczytaj_zapis];
+	case NOWA_GRA:
+		std::cout << option[NOWA_GRA];
 		break;
-	case menu::menu_option::sterowanie:
-		std::cout << menu::option[menu::menu_option::sterowanie];
+	case WCZYTAJ_ZAPIS:
+		std::cout << option[WCZYTAJ_ZAPIS];
+		break;
+	case STEROWANIE:
+		std::cout << option[STEROWANIE];
 		break;
 
-	case menu::menu_option::twórcy:
-		std::cout << menu::option[menu::menu_option::twórcy];
+	case CREDITS:
+		std::cout << option[CREDITS];
 		break;
+	}
+}
+void Menu::start()
+{
+
+}
+Menu::Menu()
+{
 
 }
