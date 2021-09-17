@@ -9,5 +9,6 @@ public:
 	void choose();
 	bool is_choosen_function();
 	void change_filed_owner(char a);
+	void reset();
 	char field_content();
 };

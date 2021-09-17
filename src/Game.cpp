@@ -2,10 +2,16 @@
 Game::Game()
 {
 }
-void Game::reset()
+void Game::reset_board()
+{
+	game_board.reset();
+}
+
+void Game::reset_game()
 {
 	player_one_points = 0;
 	player_two_points = 0;
+	game_board.reset();
 }
 
 void Game::print_board()

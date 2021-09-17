@@ -20,6 +20,11 @@ char Field::field_content()
 	return X_or_O;
 }
 
+void Field::reset()
+{
+	X_or_O = ' ';
+}
+
 bool Field::is_choosen_function()
 {
 	if (is_choosen == false)

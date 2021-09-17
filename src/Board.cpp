@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#define ENTER 13
 void Board::screen_refresh()
 {
 	Sleep(500);
@@ -67,7 +68,17 @@ void Board:: game_move()
 			indicator_position = indicator_position + 1;
 		}
 	}
-	else if (LCK == 13) //Enter zatwierdza wybór opcji
+	else if (LCK == 'r') //reset
+	{
+		std::cout << "Czy chcesz zresetowac plansze?" << std::endl;
+		Sleep(1000); //Daje czas na przeczytanie
+		LCK = _getch();
+		if (LCK == ENTER)// Enter potwierdza
+		{
+			reset();
+		}
+	}
+	else if (LCK == ENTER) //Enter zatwierdza wybór opcji
 	{
 		if(whom_turn == 'X' && field[indicator_position].is_choosen_function())
 		{
@@ -83,6 +94,7 @@ void Board:: game_move()
 			field[indicator_position].choose();
 		}
 	}
+
 }
 void Board::start()
 {
@@ -97,6 +109,10 @@ void Board::start()
 }
 void Board::reset()
 {
+	for (int i = 0; i < 9; i++)
+	{
+		field[i].reset();
+	}
 }
 Board::Board()
 {
