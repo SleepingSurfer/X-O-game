@@ -10,4 +10,5 @@ private:
 public:
 	Game();
 	void reset();
+	void print_board();
 };

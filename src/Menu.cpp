@@ -1,13 +1,12 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
-#include "../inc/Board.h"
 #include "../inc/Menu.h"
 #include "../inc/Game.h"
 
 void Menu::button_clicked()
 {
-
+	Game new_game; // chcia³em wskaznik przekazac do tej funkcji ale nie dalem rady
 	char LCK = _getch();
 	if (LCK == 's')//s zmienia aktualnie wybran¹ opcjê na t¹ powni¿ej
 	{
@@ -28,7 +27,7 @@ void Menu::button_clicked()
 		switch (current_option)
 		{
 		case NOWA_GRA:
-			//game_ref
+			new_game.print_board();
 			break;
 		case WCZYTAJ_ZAPIS:
 			std::cout << "zapis" << std::endl;
@@ -86,7 +85,6 @@ void Menu::screen_refresh()
 }
 void Menu::start()
 {
-
 	while (1)
 	{
 		display_menu();

@@ -14,6 +14,7 @@ public:
 	void screen_refresh();
 	void board_edge();
 	void game_move();
+	void start();
 	void reset();
 };
 

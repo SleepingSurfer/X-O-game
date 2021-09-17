@@ -9,7 +9,6 @@
 #include "../inc/Menu.h"
 int main()
 {
-	Game new_game;
 	Menu main_menu;
 	main_menu.start();
 	return 0;

@@ -6,6 +6,8 @@ class Field
 	char X_or_O;
 public:
 	Field();
-	void change_filed_owner();
+	void choose();
+	bool is_choosen_function();
+	void change_filed_owner(char a);
 	char field_content();
 };
