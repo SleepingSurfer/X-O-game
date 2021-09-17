@@ -99,6 +99,8 @@ void Menu::controlls()
 {
 	system("CLS");
 	std::cout << "Przycisk \"r\" pozwala zresetowac plansze" << std::endl;
+	std::cout << "Przycisk \"c\" pozwala zapisac plansze" << std::endl;
+	std::cout << "Przycisk \"l\" pozwala wczytac zapisana plansze" << std::endl;
 	std::cout << "Przycisk \"Enter\" pozwala zresetowac plansze" << std::endl;
 	std::cout << "Przyciski \"WASD\" pozwalaja sterowac wskaznikiem po planszy" << std::endl;
 	Sleep(5000);

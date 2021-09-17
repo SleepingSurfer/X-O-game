@@ -2,7 +2,7 @@
 Field::Field()
 {
 	this->is_choosen = false;
-	this->X_or_O = ' ';
+	this->X_or_O = 255; // dziwny znak nie wyswietla sie w konsoli zastêpuje ' ';
 
 }
 void Field::change_filed_owner(char player_sign)
