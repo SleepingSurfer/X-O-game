@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <windows.h>
+#include <fstream>
 #define ENTER 13
 void Board::screen_refresh()
 {
@@ -29,7 +30,7 @@ void Board::board_edge()
 			else if(indicator_position == k && !field[indicator_position].is_choosen_function())
 			std::cout << "!" << "|";
 			else
-			std::cout << field[k].field_content() << "|";
+			std::cout << field[k].field_value() << "|";
 			k++;
 		}
 		std::cout << std::endl;
@@ -78,6 +79,16 @@ void Board:: game_move()
 			reset();
 		}
 	}
+	else if (LCK == 'c') //save
+	{
+		std::cout << "Czy chcesz zapisac plansze?" << std::endl;
+		Sleep(1000); //Daje czas na przeczytanie
+		LCK = _getch();
+		if (LCK == ENTER)// Enter potwierdza
+		{
+			save_possition();
+		}
+	}
 	else if (LCK == ENTER) //Enter zatwierdza wybór opcji
 	{
 		if(whom_turn == 'X' && field[indicator_position].is_choosen_function())
@@ -114,6 +125,17 @@ void Board::reset()
 		field[i].reset();
 	}
 }
+
+void Board::save_possition()
+{
+	std::ofstream save;
+	save.open("game_save.txt");
+	for (int i = 0; i < 9; i++)
+	{
+		save << field[i].field_value();
+	}
+}
+
 Board::Board()
 {
 

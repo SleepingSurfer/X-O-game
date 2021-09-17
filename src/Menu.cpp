@@ -31,9 +31,11 @@ void Menu::button_clicked()
 			break;
 		case WCZYTAJ_ZAPIS:
 			std::cout << "zapis" << std::endl;
+			
 			break;
 		case STEROWANIE:
 			std::cout << "sterowanie" << std::endl;
+			controlls();
 			break;
 
 		case CREDITS:
@@ -92,7 +94,18 @@ void Menu::start()
 		screen_refresh();
 	}
 }
+
+void Menu::controlls()
+{
+	system("CLS");
+	std::cout << "Przycisk \"r\" pozwala zresetowac plansze" << std::endl;
+	std::cout << "Przycisk \"Enter\" pozwala zresetowac plansze" << std::endl;
+	std::cout << "Przyciski \"WASD\" pozwalaja sterowac wskaznikiem po planszy" << std::endl;
+	Sleep(5000);
+}
+
 Menu::Menu()
 {
 
 }
+

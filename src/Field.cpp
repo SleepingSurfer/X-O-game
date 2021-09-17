@@ -15,7 +15,7 @@ void Field::choose()
 	is_choosen = true;
 }
 
-char Field::field_content()
+char Field::field_value()
 {
 	return X_or_O;
 }

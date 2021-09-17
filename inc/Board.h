@@ -11,6 +11,7 @@ private:
 	char whom_turn = 'X'; // nie wiem dlaczego ale funkcja nie widzi go z prywatnych do poprawy
 public:
 	Board();
+	void save_possition();
 	void screen_refresh();
 	void board_edge();
 	void game_move();

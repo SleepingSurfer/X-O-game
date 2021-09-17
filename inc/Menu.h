@@ -21,6 +21,7 @@ private:
     std::string option[4] = {"nowa gra","wczytaj zapis","sterowanie","tworcy"};
 public:
    Menu();
+   void controlls();
    void button_clicked();
    void display_menu();
    void screen_refresh();
