@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <windows.h>
 #include <fstream>
+#include <string>
 #define ENTER 13
 void Board::screen_refresh()
 {
@@ -79,6 +80,7 @@ void Board:: game_move()
 			reset();
 		}
 	}
+
 	else if (LCK == 'c') //save
 	{
 		std::cout << "Czy chcesz zapisac plansze?" << std::endl;
@@ -87,6 +89,16 @@ void Board:: game_move()
 		if (LCK == ENTER)// Enter potwierdza
 		{
 			save_possition();
+		}
+	}
+	else if (LCK == 'l') //save
+	{
+		std::cout << "Czy chcesz wczytac plansze?" << std::endl;
+		Sleep(1000); //Daje czas na przeczytanie
+		LCK = _getch();
+		if (LCK == ENTER)// Enter potwierdza
+		{
+			load_possition();
 		}
 	}
 	else if (LCK == ENTER) //Enter zatwierdza wybór opcji
@@ -134,6 +146,19 @@ void Board::save_possition()
 	{
 		save << field[i].field_value();
 	}
+}
+
+void Board::load_possition()
+{
+	std::ifstream load_save;
+	std::string buffor;
+	load_save.open("game_save.txt");
+	load_save >> buffor;
+	for (int i = 0; i < 9; i++)
+	{
+	field[i].change_filed_owner(buffor[i]);
+	}
+
 }
 
 Board::Board()

@@ -12,6 +12,7 @@ private:
 public:
 	Board();
 	void save_possition();
+	void load_possition();
 	void screen_refresh();
 	void board_edge();
 	void game_move();
