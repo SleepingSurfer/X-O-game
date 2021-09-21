@@ -22,7 +22,8 @@ char Field::field_value()
 
 void Field::reset()
 {
-	X_or_O = ' ';
+	X_or_O = 'ÿ';
+	is_choosen = false;
 }
 
 bool Field::is_choosen_function()

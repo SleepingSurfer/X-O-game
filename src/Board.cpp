@@ -126,12 +126,112 @@ void Board::start()
 	{ 
 		board_edge();
 		game_move();
+		who_won();
 		screen_refresh();
 	}
 
 }
+void Board::x_won()
+{
+	char o = 'X';
+	// Kolejno sprawdza mo¿lwie kombinacje zwyciêstwa
+	// field[0] to pierwszy element 9 leementowej tablicy;
+	if (field[0].field_value() == o && field[1].field_value() == o && field[2].field_value() == o)//poziomo
+	{
+		x_won_communicat();
+	}
+	else if (field[3].field_value() == o && field[4].field_value() == o && field[5].field_value() == o)//poziomo
+	{
+		x_won_communicat();
+	}
+	else if (field[6].field_value() == o && field[7].field_value() == o && field[8].field_value() == o)//poziomo
+	{
+		x_won_communicat();
+	}
+	else if (field[0].field_value() == o && field[3].field_value() == o && field[6].field_value() == o)//pionowo
+	{
+		x_won_communicat();
+	}
+	else if (field[1].field_value() == o && field[4].field_value() == o && field[7].field_value() == o)//pionowo
+	{
+		x_won_communicat();
+	}
+	else if (field[2].field_value() == o && field[5].field_value() == o && field[8].field_value() == o)//pionowo
+	{
+		x_won_communicat();
+	}
+	else if (field[0].field_value() == o && field[4].field_value() == o && field[8].field_value() == o)//przek¹tne
+	{
+		x_won_communicat();
+	}
+	else if (field[6].field_value() == o && field[4].field_value() == o && field[2].field_value() == o)//przek¹tne
+	{
+		x_won_communicat();
+	}
+}
+void Board::x_won_communicat()
+{
+	system("CLS");
+	std::cout << "Gracz o znaku X wygral" << std::endl;
+	std::cout << "!!!Gratulacje!!!" << std::endl;
+	Sleep(5000);
+	reset();
+}
+void Board::o_won()
+{
+	char o = 'O';
+	// Kolejno sprawdza mo¿lwie kombinacje zwyciêstwa
+	// field[0] to pierwszy element 9 leementowej tablicy;
+	if (field[0].field_value() == o && field[1].field_value() == o && field[2].field_value() == o)//poziomo
+	{
+		o_won_communicat();
+	}
+	else if (field[3].field_value() == o && field[4].field_value() == o && field[5].field_value() == o)//poziomo
+	{
+		o_won_communicat();
+	}
+	else if (field[6].field_value() == o && field[7].field_value() == o && field[8].field_value() == o)//poziomo
+	{
+		o_won_communicat();
+	}
+	else if (field[0].field_value() == o && field[3].field_value() == o && field[6].field_value() == o)//pionowo
+	{
+		o_won_communicat();
+	}
+	else if (field[1].field_value() == o && field[4].field_value() == o && field[7].field_value() == o)//pionowo
+	{
+		o_won_communicat();
+	}
+	else if (field[2].field_value() == o && field[5].field_value() == o && field[8].field_value() == o)//pionowo
+	{
+		o_won_communicat();
+	}
+	else if (field[0].field_value() == o && field[4].field_value() == o && field[8].field_value() == o)//przek¹tne
+	{
+		o_won_communicat();
+	}
+	else if (field[6].field_value() == o && field[4].field_value() == o && field[2].field_value() == o)//przek¹tne
+	{
+		o_won_communicat();
+	}
+}
+void Board::o_won_communicat()
+{
+	system("CLS");
+	std::cout << "Gracz o znaku O wygral" << std::endl;
+	std::cout << "!!!Gratulacje!!!" << std::endl;
+	Sleep(5000);
+	reset();
+
+}
+void Board::who_won()
+{
+	o_won();
+	x_won();
+}
 void Board::reset()
 {
+	whom_turn = 'X'; //X zawsze zaczyna
 	for (int i = 0; i < 9; i++)
 	{
 		field[i].reset();

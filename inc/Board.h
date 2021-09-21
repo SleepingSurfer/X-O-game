@@ -17,6 +17,11 @@ public:
 	void board_edge();
 	void game_move();
 	void start();
+	void x_won();
+	void x_won_communicat();
+	void o_won();
+	void o_won_communicat();
+	void who_won();
 	void reset();
 };
 

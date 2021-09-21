@@ -6,7 +6,7 @@
 
 void Menu::button_clicked()
 {
-	Game new_game; // chcia³em wskaznik przekazac do tej funkcji ale nie dalem rady
+	Game play_game; // chcia³em wskaznik przekazac do tej funkcji ale nie dalem rady
 	char LCK = _getch();
 	if (LCK == 's')//s zmienia aktualnie wybran¹ opcjê na t¹ powni¿ej
 	{
@@ -27,11 +27,10 @@ void Menu::button_clicked()
 		switch (current_option)
 		{
 		case NOWA_GRA:
-			new_game.print_board();
+			play_game.print_board();
 			break;
 		case WCZYTAJ_ZAPIS:
-			std::cout << "zapis" << std::endl;
-			
+			play_game.load_game();
 			break;
 		case STEROWANIE:
 			std::cout << "sterowanie" << std::endl;

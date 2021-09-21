@@ -12,4 +12,5 @@ public:
 	void reset_board();
 	void reset_game();
 	void print_board();
+	void load_game();
 };

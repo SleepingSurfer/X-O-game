@@ -18,3 +18,9 @@ void Game::print_board()
 {
 	game_board.start();
 }
+
+void Game::load_game()
+{
+	game_board.load_possition();
+	game_board.start();
+}
