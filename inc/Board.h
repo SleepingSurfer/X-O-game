@@ -1,14 +1,15 @@
 #pragma once
 #include <iostream>
 #include "Field.h"
-#define BOARD_SIZE 3
+#define BOARD_LENGHT 3
+#define BOARD_WIDTH 3
+//skalowanie warunków zwyciêstwa
 class Board
 {
 private:
 	Field field[9];
 	int indicator_position = 5;
-	char LCK = ' '; // last clicked key
-	char whom_turn = 'X'; // nie wiem dlaczego ale funkcja nie widzi go z prywatnych do poprawy
+	char whom_turn = 'X'; //przenieœ do metody
 public:
 	Board();
 	void save_possition();
@@ -17,9 +18,7 @@ public:
 	void board_edge();
 	void game_move();
 	void start();
-	void x_won();
 	void x_won_communicat();
-	void o_won();
 	void o_won_communicat();
 	void who_won();
 	void reset();

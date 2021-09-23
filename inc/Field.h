@@ -3,7 +3,7 @@
 class Field
 {
 	bool is_choosen;
-	char X_or_O;
+	char X_or_O; // symbol 
 public:
 	Field();
 	void choose();

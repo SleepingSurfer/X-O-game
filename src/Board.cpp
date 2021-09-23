@@ -6,9 +6,9 @@
 #include <fstream>
 #include <string>
 #define ENTER 13
-void Board::screen_refresh()
+void Board::screen_refresh() // przeneiœ do klasy gra to samo w klasie menu
 {
-	Sleep(500);
+	Sleep(100);
 	system("CLS");
 
 }
@@ -17,14 +17,14 @@ void Board::board_edge()
 {
 	int actuall = 4;
 	int k = 0;
-	for (int i = BOARD_SIZE; i > 0; i--)
+	for (int i = BOARD_WIDTH; i > 0; i--) // przerób dla tablicy 2 wymiarowej
 	{
-		for (int y = BOARD_SIZE; y > 0; y--)
+		for (int y = BOARD_WIDTH; y > 0; y--)
 		{
 			std::cout << "==";
 		}
 		std::cout << std::endl;
-		for (int s = BOARD_SIZE; s > 0; s--)
+		for (int s = BOARD_LENGHT; s > 0; s--)
 		{
 			if (indicator_position == k && field[indicator_position].is_choosen_function())
 			std::cout <<"?"<<"|";
@@ -39,12 +39,12 @@ void Board::board_edge()
 }
 
 
-void Board:: game_move()
+void Board:: game_move() // przenieœ do Klasy game, niech zwraca pozycje kursora
 {
 	char LCK = _getch();
 	if (LCK == 'w')//przesuwa wybrane pole w górê
 	{
-		if (indicator_position != 0 && indicator_position != 1 && indicator_position != 2)
+		if (indicator_position != 0 && indicator_position != 1 && indicator_position != 2)//popraw
 		{
 			indicator_position = indicator_position - 3;
 		}
@@ -131,44 +131,7 @@ void Board::start()
 	}
 
 }
-void Board::x_won()
-{
-	char o = 'X';
-	// Kolejno sprawdza mo¿lwie kombinacje zwyciêstwa
-	// field[0] to pierwszy element 9 leementowej tablicy;
-	if (field[0].field_value() == o && field[1].field_value() == o && field[2].field_value() == o)//poziomo
-	{
-		x_won_communicat();
-	}
-	else if (field[3].field_value() == o && field[4].field_value() == o && field[5].field_value() == o)//poziomo
-	{
-		x_won_communicat();
-	}
-	else if (field[6].field_value() == o && field[7].field_value() == o && field[8].field_value() == o)//poziomo
-	{
-		x_won_communicat();
-	}
-	else if (field[0].field_value() == o && field[3].field_value() == o && field[6].field_value() == o)//pionowo
-	{
-		x_won_communicat();
-	}
-	else if (field[1].field_value() == o && field[4].field_value() == o && field[7].field_value() == o)//pionowo
-	{
-		x_won_communicat();
-	}
-	else if (field[2].field_value() == o && field[5].field_value() == o && field[8].field_value() == o)//pionowo
-	{
-		x_won_communicat();
-	}
-	else if (field[0].field_value() == o && field[4].field_value() == o && field[8].field_value() == o)//przek¹tne
-	{
-		x_won_communicat();
-	}
-	else if (field[6].field_value() == o && field[4].field_value() == o && field[2].field_value() == o)//przek¹tne
-	{
-		x_won_communicat();
-	}
-}
+
 void Board::x_won_communicat()
 {
 	system("CLS");
@@ -177,44 +140,7 @@ void Board::x_won_communicat()
 	Sleep(5000);
 	reset();
 }
-void Board::o_won()
-{
-	char o = 'O';
-	// Kolejno sprawdza mo¿lwie kombinacje zwyciêstwa
-	// field[0] to pierwszy element 9 leementowej tablicy;
-	if (field[0].field_value() == o && field[1].field_value() == o && field[2].field_value() == o)//poziomo
-	{
-		o_won_communicat();
-	}
-	else if (field[3].field_value() == o && field[4].field_value() == o && field[5].field_value() == o)//poziomo
-	{
-		o_won_communicat();
-	}
-	else if (field[6].field_value() == o && field[7].field_value() == o && field[8].field_value() == o)//poziomo
-	{
-		o_won_communicat();
-	}
-	else if (field[0].field_value() == o && field[3].field_value() == o && field[6].field_value() == o)//pionowo
-	{
-		o_won_communicat();
-	}
-	else if (field[1].field_value() == o && field[4].field_value() == o && field[7].field_value() == o)//pionowo
-	{
-		o_won_communicat();
-	}
-	else if (field[2].field_value() == o && field[5].field_value() == o && field[8].field_value() == o)//pionowo
-	{
-		o_won_communicat();
-	}
-	else if (field[0].field_value() == o && field[4].field_value() == o && field[8].field_value() == o)//przek¹tne
-	{
-		o_won_communicat();
-	}
-	else if (field[6].field_value() == o && field[4].field_value() == o && field[2].field_value() == o)//przek¹tne
-	{
-		o_won_communicat();
-	}
-}
+
 void Board::o_won_communicat()
 {
 	system("CLS");
@@ -224,10 +150,97 @@ void Board::o_won_communicat()
 	reset();
 
 }
-void Board::who_won()
+void Board::who_won()//git jest
 {
-	o_won();
-	x_won();
+	if (field[0].field_value() == field[1].field_value() && field[1].field_value() == field[2].field_value())//poziomo poprawiona musi byæ tak bo potrójny warunek nie dzia³a
+	{
+		if (field[0].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[0].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[3].field_value() == field[4].field_value() && field[4].field_value() == field[5].field_value())//poziomo
+	{
+		if (field[3].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[3].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[6].field_value() == field[7].field_value() && field[7].field_value() == field[8].field_value())//poziomo
+	{
+		if (field[6].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[6].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[0].field_value() == field[3].field_value() && field[3].field_value() == field[6].field_value())//pionowo
+	{
+		if (field[0].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[0].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[1].field_value() == field[4].field_value() && field[4].field_value() == field[7].field_value())//pionowo
+	{
+		if (field[1].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[1].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[2].field_value() == field[5].field_value() && field[5].field_value() == field[8].field_value())//pionowo
+	{
+		if (field[2].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[2].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[0].field_value() == field[4].field_value() && field[4].field_value() == field[8].field_value())//przek¹tne
+	{
+		if (field[0].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[0].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
+	else if (field[6].field_value() == field[4].field_value() && field[4].field_value() ==  field[2].field_value())//przek¹tne
+	{
+
+		if (field[6].field_value() == 'X') //do 
+		{
+			x_won_communicat();
+		}
+		else if (field[6].field_value() == 'O')
+		{
+			o_won_communicat();
+		}
+	}
 }
 void Board::reset()
 {
@@ -238,7 +251,7 @@ void Board::reset()
 	}
 }
 
-void Board::save_possition()
+void Board::save_possition()//przenieœ do klasy game
 {
 	std::ofstream save;
 	save.open("game_save.txt");
@@ -248,7 +261,7 @@ void Board::save_possition()
 	}
 }
 
-void Board::load_possition()
+void Board::load_possition()//przenieœ do klasy game
 {
 	std::ifstream load_save;
 	std::string buffor;
