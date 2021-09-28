@@ -22,8 +22,8 @@ private:
 public:
    Menu();
    void controlls();
-   void button_clicked();
+   int button_clicked();
    void display_menu();
    void screen_refresh();
-   void start();
+   int start();
 };

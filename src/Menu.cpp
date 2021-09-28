@@ -3,10 +3,9 @@
 #include <windows.h>
 #include "../inc/Menu.h"
 #include "../inc/Game.h"
-
-void Menu::button_clicked()
+int Menu::button_clicked()
 {
-	Game play_game; // chcia³em wskaznik przekazac do tej funkcji ale nie dalem rady
+	int mode;
 	char LCK = _getch();
 	if (LCK == 's')//s zmienia aktualnie wybran¹ opcjê na t¹ powni¿ej
 	{
@@ -27,10 +26,10 @@ void Menu::button_clicked()
 		switch (current_option)
 		{
 		case NOWA_GRA:
-			play_game.print_board();
+			return 1;
 			break;
 		case WCZYTAJ_ZAPIS:
-			play_game.load_game();
+			return 2;
 			break;
 		case STEROWANIE:
 			std::cout << "sterowanie" << std::endl;
@@ -44,7 +43,7 @@ void Menu::button_clicked()
 	}
 	else
 	{
-
+		return 0;
 	}
 }
 void Menu::display_menu()
@@ -84,13 +83,18 @@ void Menu::screen_refresh()
 	system("CLS");
 
 }
-void Menu::start()
+int Menu::start()
 {
+	int option = 0;
 	while (1)
 	{
 		display_menu();
-		button_clicked();
+		option = button_clicked();
 		screen_refresh();
+		if (option == 1 || option == 2)
+		{
+			return option;
+		}
 	}
 }
 

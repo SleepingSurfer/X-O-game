@@ -9,18 +9,17 @@ class Board
 private:
 	Field field[9];
 	int indicator_position = 5;
-	char whom_turn = 'X'; //przenieœ do metody
 public:
 	Board();
 	void save_possition();
 	void load_possition();
 	void screen_refresh();
 	void board_edge();
-	void game_move();
+	char game_move(char znak);
 	void start();
 	void x_won_communicat();
 	void o_won_communicat();
-	void who_won();
+	char who_won(char znak);
 	void reset();
 };
 

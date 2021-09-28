@@ -39,8 +39,9 @@ void Board::board_edge()
 }
 
 
-void Board:: game_move() // przenieœ do Klasy game, niech zwraca pozycje kursora
+char Board:: game_move(char znak) // przenieœ do Klasy game, niech zwraca pozycje kursora
 {
+	char whom_turn = znak; //przenieœ do metody
 	char LCK = _getch();
 	if (LCK == 'w')//przesuwa wybrane pole w górê
 	{
@@ -117,16 +118,17 @@ void Board:: game_move() // przenieœ do Klasy game, niech zwraca pozycje kursora
 			field[indicator_position].choose();
 		}
 	}
-
+	return whom_turn;
 }
 void Board::start()
 {
+	char whom_turn = 'X'; //przenieœ do metody
 	screen_refresh();
 	while(1)
 	{ 
 		board_edge();
-		game_move();
-		who_won();
+		whom_turn = game_move(whom_turn);
+		whom_turn = who_won(whom_turn);
 		screen_refresh();
 	}
 
@@ -150,17 +152,20 @@ void Board::o_won_communicat()
 	reset();
 
 }
-void Board::who_won()//git jest
+char Board::who_won(char znak)//git jest
 {
+	bool someone_won = false;
 	if (field[0].field_value() == field[1].field_value() && field[1].field_value() == field[2].field_value())//poziomo poprawiona musi byæ tak bo potrójny warunek nie dzia³a
 	{
 		if (field[0].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[0].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[3].field_value() == field[4].field_value() && field[4].field_value() == field[5].field_value())//poziomo
@@ -168,10 +173,12 @@ void Board::who_won()//git jest
 		if (field[3].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[3].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[6].field_value() == field[7].field_value() && field[7].field_value() == field[8].field_value())//poziomo
@@ -179,10 +186,12 @@ void Board::who_won()//git jest
 		if (field[6].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[6].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[0].field_value() == field[3].field_value() && field[3].field_value() == field[6].field_value())//pionowo
@@ -190,10 +199,12 @@ void Board::who_won()//git jest
 		if (field[0].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[0].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[1].field_value() == field[4].field_value() && field[4].field_value() == field[7].field_value())//pionowo
@@ -201,10 +212,12 @@ void Board::who_won()//git jest
 		if (field[1].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[1].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[2].field_value() == field[5].field_value() && field[5].field_value() == field[8].field_value())//pionowo
@@ -212,10 +225,12 @@ void Board::who_won()//git jest
 		if (field[2].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[2].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[0].field_value() == field[4].field_value() && field[4].field_value() == field[8].field_value())//przek¹tne
@@ -223,10 +238,12 @@ void Board::who_won()//git jest
 		if (field[0].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[0].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
 	else if (field[6].field_value() == field[4].field_value() && field[4].field_value() ==  field[2].field_value())//przek¹tne
@@ -235,16 +252,21 @@ void Board::who_won()//git jest
 		if (field[6].field_value() == 'X') //do 
 		{
 			x_won_communicat();
+			someone_won = true;
 		}
 		else if (field[6].field_value() == 'O')
 		{
 			o_won_communicat();
+			someone_won = true;
 		}
 	}
+	if (someone_won)
+		return 'X'; //resetowanie znaku na X po wygranej
+	else
+		return znak; //tu nie resetuje
 }
 void Board::reset()
 {
-	whom_turn = 'X'; //X zawsze zaczyna
 	for (int i = 0; i < 9; i++)
 	{
 		field[i].reset();

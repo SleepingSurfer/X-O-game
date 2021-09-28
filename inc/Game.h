@@ -9,6 +9,7 @@ private:
 	int player_two_points = 0;
 public:
 	Game();
+	void start();
 	void reset_board();
 	void reset_game();
 	void print_board();

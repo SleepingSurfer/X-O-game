@@ -8,8 +8,8 @@
 #include "../inc/Game.h"
 #include "../inc/Menu.h"
 int main()
-{
-	Menu main_menu;
-	main_menu.start();
+{	
+	Game gra;
+	gra.start();
 	return 0;
 }

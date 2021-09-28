@@ -2,6 +2,20 @@
 Game::Game()
 {
 }
+void Game::start()
+{
+	Menu game_menu;
+	int option;
+	option = game_menu.start();
+	if  (option == 1)
+	{
+		print_board();
+	}
+	else if (option == 2)
+	{
+		load_game();
+	}
+}
 void Game::reset_board()
 {
 	game_board.reset();
