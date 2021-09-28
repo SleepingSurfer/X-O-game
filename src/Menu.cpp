@@ -52,28 +52,28 @@ void Menu::display_menu()
 	{
 	case NOWA_GRA:
 		std::cout <<"--->"<< option[NOWA_GRA] << "<---"<< std::endl;
-		std::cout <<"    "<< option[WCZYTAJ_ZAPIS] << "    " << std::endl;
-		std::cout << "    " << option[STEROWANIE] << "    " << std::endl;
-		std::cout << "    " << option[CREDITS] << "    " << std::endl;
+		std::cout <<"  "<< option[WCZYTAJ_ZAPIS] << "  " << std::endl;
+		std::cout << "   " << option[STEROWANIE] << "   " << std::endl;
+		std::cout << "     " << option[CREDITS] << "     " << std::endl;
 		break;
 	case WCZYTAJ_ZAPIS:
-		std::cout << option[NOWA_GRA] << std::endl;
-		std::cout <<"*"<< option[WCZYTAJ_ZAPIS] << std::endl;
-		std::cout << option[STEROWANIE] << std::endl;
-		std::cout << option[CREDITS] << std::endl;
+		std::cout << "    " << option[NOWA_GRA] << "    " << std::endl;
+		std::cout << "->" << option[WCZYTAJ_ZAPIS] << "<-" << std::endl;
+		std::cout << "   " << option[STEROWANIE] << "   " << std::endl;
+		std::cout << "     " << option[CREDITS] << "     " << std::endl;
 		break;
 	case STEROWANIE:
-		std::cout << option[NOWA_GRA] << std::endl;
-		std::cout << option[WCZYTAJ_ZAPIS] << std::endl;
-		std::cout <<"*"<< option[STEROWANIE] << std::endl;
-		std::cout << option[CREDITS] << std::endl;
+		std::cout << "    " << option[NOWA_GRA] << "    " << std::endl;
+		std::cout << "  " << option[WCZYTAJ_ZAPIS] << "  " << std::endl;
+		std::cout << "-->" << option[STEROWANIE] << "<--" << std::endl;
+		std::cout << "     " << option[CREDITS] << "     " << std::endl;
 		break;
 
 	case CREDITS:
-		std::cout << option[NOWA_GRA] << std::endl;
-		std::cout << option[WCZYTAJ_ZAPIS] << std::endl;
-		std::cout << option[STEROWANIE] << std::endl;
-		std::cout << "*" << option[CREDITS] << std::endl;
+		std::cout << "    " << option[NOWA_GRA] << "    " << std::endl;
+		std::cout << "  " << option[WCZYTAJ_ZAPIS] << "  " << std::endl;
+		std::cout << "   " << option[STEROWANIE] << "  " << std::endl;
+		std::cout << "---->" << option[CREDITS] << "<-----" << std::endl;
 		break;
 	}
 }

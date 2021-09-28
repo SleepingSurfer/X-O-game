@@ -15,15 +15,28 @@ void Board::screen_refresh() // przeneiœ do klasy gra to samo w klasie menu
 
 void Board::board_edge()
 {
+	std::string padding = "  ";
 	int actuall = 4;
 	int k = 0;
+	int border = 3; // bo 3 warstwy
 	for (int i = BOARD_WIDTH; i > 0; i--) // przerób dla tablicy 2 wymiarowej
 	{
+		std::cout << padding;
+		if (border != 0)
+		{
+			std::cout << "=";
+			
+		}
 		for (int y = BOARD_WIDTH; y > 0; y--)
 		{
-			std::cout << "==";
+			std::cout<< "==";
 		}
 		std::cout << std::endl;
+		std::cout << padding;
+		if (border != 0)
+		{
+			std::cout << "|";
+		}
 		for (int s = BOARD_LENGHT; s > 0; s--)
 		{
 			if (indicator_position == k && field[indicator_position].is_choosen_function())
@@ -35,6 +48,7 @@ void Board::board_edge()
 			k++;
 		}
 		std::cout << std::endl;
+		border--;
 	}
 }
 
