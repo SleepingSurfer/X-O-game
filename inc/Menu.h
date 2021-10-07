@@ -19,6 +19,7 @@ private:
     };
     int current_option = 2;
     std::string option[4] = {"nowa gra","wczytaj zapis","sterowanie","tworcy"};
+    std::string alt_option[3] = { "zapisz gre","wczytaj zapis","zresetuj plansze"};
 public:
    Menu();
    void controlls();
@@ -26,4 +27,5 @@ public:
    void display_menu();
    void screen_refresh();
    int start();
+
 };

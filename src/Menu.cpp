@@ -38,6 +38,8 @@ int Menu::button_clicked()
 
 		case CREDITS:
 			std::cout << "credit" << std::endl;
+			std::cout << "Kamil Szczygiel " << std::endl;
+			Sleep(2000);
 			break;
 		}
 	}
