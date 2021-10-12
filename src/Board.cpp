@@ -7,6 +7,7 @@
 #include <string>
 #define ENTER 13
 #define SYMBOL 219
+#define ESC 27
 void Board::screen_refresh() // przeneiœ do klasy gra to samo w klasie menu
 {
 	Sleep(100);
@@ -85,35 +86,38 @@ char Board:: game_move(char znak, char clicked_key) // przenieœ do Klasy game, n
 			indicator_position_x = indicator_position_x + 1;
 		}
 	}
-	else if (LCK == 'r') //reset
+	else if (LCK == ESC)
 	{
-		std::cout << "Czy chcesz zresetowac plansze?" << std::endl;
-		Sleep(1000); //Daje czas na przeczytanie
-		LCK = _getch();
-		if (LCK == ENTER)// Enter potwierdza
+		int chfunction = igmenu.start();
+		if (chfunction == 1)
 		{
-			reset();
+			std::cout << "Czy chcesz zresetowac plansze? <<ENTER>>" << std::endl;
+			Sleep(1000); //Daje czas na przeczytanie
+			LCK = _getch();
+			if (LCK == ENTER)// Enter potwierdza
+			{
+				reset();
+			}
 		}
-	}
-
-	else if (LCK == 'c') //save
-	{
-		std::cout << "Czy chcesz zapisac plansze?" << std::endl;
-		Sleep(1000); //Daje czas na przeczytanie
-		LCK = _getch();
-		if (LCK == ENTER)// Enter potwierdza
+		else if (chfunction == 2)
 		{
-			save_possition();
+			std::cout << "Czy chcesz wczytac plansze? <<ENTER>>" << std::endl;
+			Sleep(1000); //Daje czas na przeczytanie
+			LCK = _getch();
+			if (LCK == ENTER)// Enter potwierdza
+			{
+				load_possition();
+			}
 		}
-	}
-	else if (LCK == 'l') //save
-	{
-		std::cout << "Czy chcesz wczytac plansze?" << std::endl;
-		Sleep(1000); //Daje czas na przeczytanie
-		LCK = _getch();
-		if (LCK == ENTER)// Enter potwierdza
+		else if (chfunction == 3)
 		{
-			load_possition();
+			std::cout << "Czy chcesz zapisac plansze? <<ENTER>>" << std::endl;
+			Sleep(1000); //Daje czas na przeczytanie
+			LCK = _getch();
+			if (LCK == ENTER)// Enter potwierdza
+			{
+				save_possition();
+			}
 		}
 	}
 	else if (LCK == ENTER) //Enter zatwierdza wybór opcji
@@ -149,7 +153,7 @@ void Board::start()
 			{
 				decoy = _getch();
 			}
-			if (decoy == 'w' || decoy == 's' || decoy == 'a' || decoy == 'd' || decoy == ENTER || decoy == 'r' || decoy == 'c' || decoy == 'l')
+			if (decoy == 'w' || decoy == 's' || decoy == 'a' || decoy == 'd' || decoy == ENTER || decoy == ESC)
 				clicked_key = decoy;
 			cycle_tick();
 			whom_turn = game_move(whom_turn, clicked_key);

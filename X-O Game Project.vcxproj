@@ -143,6 +143,7 @@
     <ClCompile Include="src\Board.cpp" />
     <ClCompile Include="src\Field.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\Ingame_menu.cpp" />
     <ClCompile Include="src\Menu.cpp" />
     <ClCompile Include="src\X-O Game Project.cpp" />
   </ItemGroup>
@@ -150,6 +151,7 @@
     <ClInclude Include="inc\Board.h" />
     <ClInclude Include="inc\Field.h" />
     <ClInclude Include="inc\Game.h" />
+    <ClInclude Include="inc\Ingame_menu.h" />
     <ClInclude Include="inc\Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

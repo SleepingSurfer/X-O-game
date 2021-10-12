@@ -1,12 +1,14 @@
 #pragma once
 #include <iostream>
 #include "Field.h"
+#include "Ingame_menu.h"
 #define BOARD_LENGHT 3
 #define BOARD_WIDTH 3
 //skalowanie warunków zwyciêstwa
 class Board
 {
 private:
+	Ingame_menu igmenu;
 	Field field[BOARD_LENGHT][BOARD_WIDTH];
 	int indicator_position_y = 1;
 	int indicator_position_x = 1;
