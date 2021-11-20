@@ -19,7 +19,7 @@ void Board::board_edge()
 {
 	std::string padding = "  ";
 	char symbol = SYMBOL;
-	int border = 3; // bo 3 warstwy
+	int border = BOARD_WIDTH;
 	for (int i = 0; i  < BOARD_WIDTH; i++) // przerób dla tablicy 2 wymiarowej
 	{
 		std::cout << padding;
@@ -67,7 +67,7 @@ char Board:: game_move(char znak, char clicked_key) // przenieœ do Klasy game, n
 	}
 	else if (LCK == 's')//przesuwa wybrane pole w dó³
 	{
-		if (indicator_position_y != 2)
+		if (indicator_position_y != (BOARD_LENGHT-1))
 		{ 
 			indicator_position_y = indicator_position_y + 1;
 		}
@@ -81,7 +81,7 @@ char Board:: game_move(char znak, char clicked_key) // przenieœ do Klasy game, n
 	}
 	else if (LCK == 'd')//przesuwa wybrane pole w prawo
 	{
-		if (indicator_position_x != 2)
+		if (indicator_position_x != (BOARD_WIDTH - 1))
 		{
 			indicator_position_x = indicator_position_x + 1;
 		}
@@ -253,9 +253,9 @@ char Board::who_won(char znak)//git jest
 }
 void Board::reset()
 {
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < BOARD_LENGHT; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < BOARD_WIDTH; j++)
 		{
 			field[i][j].reset();
 		}
@@ -266,9 +266,9 @@ void Board::save_possition()//przenieœ do klasy game
 {
 	std::ofstream save;
 	save.open("game_save.txt");
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < BOARD_LENGHT; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < BOARD_WIDTH; j++)
 		{
 			save << field[i][j].field_value();
 		}
@@ -279,21 +279,21 @@ void Board::load_possition()//przenieœ do klasy game
 {
 	std::ifstream load_save;
 	std::string buf;
-	char buffor[3][3];
+	char buffor[BOARD_LENGHT][BOARD_WIDTH];
 	load_save.open("game_save.txt");
 	load_save >> buf;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < BOARD_LENGHT; i++)
 	{
 		int y = 0;
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < BOARD_WIDTH; j++)
 		{
 			buffor[i][j] = buf[y];
 			y++;
 		}
 	}
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < BOARD_LENGHT; i++)
 	{
-		for (int j = 0; j < 3; j++)
+		for (int j = 0; j < BOARD_WIDTH; j++)
 		{
 			field[i][j].change_filed_owner(buffor[i][j]);
 		}

@@ -1,0 +1,12 @@
+﻿  Board.cpp
+C:\Users\Kamil\Desktop\projekt x-o\X-O-game\src\Board.cpp(21,16): warning C4309: "inicjowanie": obcięcie stałej wartości
+  Field.cpp
+C:\Users\Kamil\Desktop\projekt x-o\X-O-game\src\Field.cpp(5,17): warning C4309: "=": obcięcie stałej wartości
+  Game.cpp
+  Ingame_menu.cpp
+  Menu.cpp
+  X-O Game Project.cpp
+  Generowanie kodu...
+C:\Users\Kamil\Desktop\projekt x-o\X-O-game\src\Menu.cpp(49): warning C4715: "Menu::button_clicked”: niewszystkie ścieżki kodu zwracają wartość
+C:\Users\Kamil\Desktop\projekt x-o\X-O-game\src\Ingame_menu.cpp(47): warning C4715: "Ingame_menu::button_clicked”: niewszystkie ścieżki kodu zwracają wartość
+  X-O Game Project.vcxproj -> C:\Users\Kamil\Desktop\projekt x-o\X-O-game\x64\Debug\X-O Game Project.exe
