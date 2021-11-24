@@ -2,8 +2,8 @@
 #include <iostream>
 #include "Field.h"
 #include "Ingame_menu.h"
-#define BOARD_LENGHT 5
-#define BOARD_WIDTH 6
+#define BOARD_LENGHT 4
+#define BOARD_WIDTH 12
 //skalowanie warunków zwyciêstwa
 class Board
 {

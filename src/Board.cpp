@@ -20,7 +20,7 @@ void Board::board_edge()
 	std::string padding = "  ";
 	char symbol = SYMBOL;
 	int border = BOARD_WIDTH;
-	for (int i = 0; i  < BOARD_WIDTH; i++) // przerób dla tablicy 2 wymiarowej
+	for (int i = 0; i  < BOARD_LENGHT; i++) // przerób dla tablicy 2 wymiarowej
 	{
 		std::cout << padding;
 		if (border != 0)
@@ -38,7 +38,7 @@ void Board::board_edge()
 		{
 			std::cout << "|";
 		}
-		for (int s = 0; s < BOARD_LENGHT; s++)
+		for (int s = 0; s < BOARD_WIDTH; s++)
 		{
 			if (indicator_position_y == i && indicator_position_x == s && cycle == 1)
 				std::cout <<symbol << "|";
